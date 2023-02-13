@@ -1,7 +1,6 @@
 
 [include mainsail.cfg]
-[include timelapse.cfg]
-[include ./macros/macros.cfg]
+
 # This file contains pin mappings for the stock 2021 Creality Ender 3
 # S1 & S1 Pro. To use this config, check the STM32 Chip on the
 # Mainboard, during "make menuconfig" select accordingly either the
@@ -74,7 +73,6 @@ sensor_pin: PC5
 #pid_Kd: 61.24
 min_temp: 0
 max_temp: 250 # Set to 300 for S1 Pro
-pressure_advance: 0.043
 
 [heater_bed]
 heater_pin: PA7
@@ -97,22 +95,11 @@ pin: PA0
 serial: /dev/serial/by-id/usb-1a86_USB_Serial-if00-port0
 restart_method: command
 
-[mcu rpi]
-serial: /tmp/klipper_host_mcu
-
-[adxl345]
-cs_pin: rpi:None
-
-[resonance_tester]
-accel_chip: adxl345
-probe_points:
-    100, 100, 20  # an example
 
 [printer]
 kinematics: cartesian
 max_velocity: 300
 max_accel: 2500
-#max_accel: 5000 #it can handle it but only if I don't care about correct size or printing slower in gneral
 max_z_velocity: 5
 max_z_accel: 100
 
@@ -130,11 +117,8 @@ speed: 120
 horizontal_move_z: 5
 #probe_count: 4, 4 # for bed leveling
 probe_count: 8, 8
-#mesh_min: 10, 10
-#mesh_max: 179, 170
 mesh_max: 200, 179
 mesh_min: 5,5 
-#mesh_max: 204, 183
 fade_start: 2 #what layer do you want the bed level compensation to begin
 fade_end: 11 # what layer do you want the bed level compenstation to end
 fade_target: 0
@@ -175,59 +159,4 @@ screw3_name: Rear right screw
 screw4: 60, 224
 screw4_name: Rear left screw
 
-#*# <---------------------- SAVE_CONFIG ---------------------->
-#*# DO NOT EDIT THIS BLOCK OR BELOW. The contents are auto-generated.
-#*#
-#*# [bltouch]
-#*# z_offset = 2.390
-#*#
-#*# [extruder]
-#*# control = pid
-#*# pid_kp = 22.057
-#*# pid_ki = 1.186
-#*# pid_kd = 102.563
-#*#
-#*# [heater_bed]
-#*# control = pid
-#*# pid_kp = 69.996
-#*# pid_ki = 1.119
-#*# pid_kd = 1094.556
-#*#
-#*# [bed_mesh default]
-#*# version = 1
-#*# points =
-#*# 	  -0.007500, -0.006250, 0.013750
-#*# 	  -0.035000, -0.011250, 0.020000
-#*# 	  -0.025000, -0.013750, 0.032500
-#*# x_count = 3
-#*# y_count = 3
-#*# mesh_x_pps = 2
-#*# mesh_y_pps = 2
-#*# algo = lagrange
-#*# tension = 0.2
-#*# min_x = 72.04
-#*# max_x = 148.76999999999998
-#*# min_y = 89.06
-#*# max_y = 130.94
-#*#
-#*# [bed_mesh rough]
-#*# version = 1
-#*# points =
-#*# 	-0.112500, -0.087500, -0.065000, -0.002500, -0.020000, -0.027500, -0.030000, -0.077500
-#*# 	-0.077500, -0.097500, -0.072500, -0.030000, -0.057500, -0.025000, -0.070000, -0.160000
-#*# 	-0.035000, -0.062500, -0.025000, 0.027500, 0.000000, -0.015000, -0.057500, -0.147500
-#*# 	-0.102500, -0.080000, -0.020000, 0.017500, -0.010000, -0.010000, -0.062500, -0.125000
-#*# 	-0.137500, -0.092500, -0.047500, 0.027500, -0.002500, 0.000000, -0.037500, -0.117500
-#*# 	-0.160000, -0.100000, -0.062500, -0.025000, -0.012500, -0.010000, -0.040000, -0.100000
-#*# 	-0.177500, -0.102500, -0.082500, -0.025000, -0.030000, -0.017500, -0.042500, -0.120000
-#*# 	-0.257500, -0.210000, -0.170000, -0.067500, -0.080000, -0.065000, -0.082500, -0.117500
-#*# x_count = 8
-#*# y_count = 8
-#*# mesh_x_pps = 2
-#*# mesh_y_pps = 2
-#*# algo = bicubic
-#*# tension = 0.2
-#*# min_x = 4.9999999999999964
-#*# max_x = 199.95
-#*# min_y = 5.0
-#*# max_y = 178.95
+
